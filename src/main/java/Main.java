@@ -1,6 +1,11 @@
 public class Main {
     public static void main(String[] args) {
-        boolean checkPW = PasswordValidation.checkLength("po");
-        System.out.println(checkPW);
+
+        System.out.println("WELCOME TO CANVAS PROGRAM");
+        String cmd = Utils.enterCmd();
+
+        DrawProgram drawProgram = new DrawProgram();
+        drawProgram.draw(cmd);
+
     }
 }
