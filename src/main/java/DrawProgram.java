@@ -14,6 +14,10 @@ public class DrawProgram {
         int width = Integer.valueOf(arguments[indexArgumentOfWidth]);
         int height = Integer.valueOf(arguments[indexArgumentOfHeight]);
 
+        if (width < Const.MINIMUM_SIZE_WIDTH || height < Const.MINIMUM_SIZE_HEIGHT) {
+            throw new Exception("Smaller than minimum size");
+        }
+
         String[][] frame = new String[height + Const.OFFSET][width + Const.OFFSET];
         int rowFrame = frame.length;
 
