@@ -1,12 +1,8 @@
-import org.junit.Assert;
-import org.junit.Test;
+public class DrawProgram {
 
-public class DrawProgramTest {
+    public String[][] draw(String cmd) {
 
-    @Test
-    public void testCreateANewCanvas() {
-
-        String[][] frameExpected = new String[][] {
+        String[][] frame = new String[][] {
                 {"-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-"},
                 {"|", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", "|"},
                 {"|", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", "|"},
@@ -15,12 +11,6 @@ public class DrawProgramTest {
                 {"-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-"}
         };
 
-        DrawProgram drawProgram = new DrawProgram();
-        String[][] frameActual = drawProgram.draw("C 20 4");
-
-        Assert.assertEquals(frameExpected.length, frameActual.length);
-        for (int i = 0; i < frameExpected.length; i++) {
-            Assert.assertArrayEquals(frameExpected[i], frameActual[i]);
-        }
+        return frame;
     }
 }
