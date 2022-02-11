@@ -2,13 +2,18 @@ public class DrawProgram {
 
     public String[][] draw(String cmd) {
 
-        String[] parameter = cmd.split(" ");
-        int width = Integer.valueOf(parameter[1]);
-        int height = Integer.valueOf(parameter[2]);
+        String[] arguments = cmd.split(" ");
 
-        String[][] frame = new String[height + 2][width + 2];
+        int indexArgumentOfWidth = 1;
+        int indexArgumentOfHeight = 2;
+        int width = Integer.valueOf(arguments[indexArgumentOfWidth]);
+        int height = Integer.valueOf(arguments[indexArgumentOfHeight]);
+
+        String[][] frame = new String[height + Const.OFFSET][width + Const.OFFSET];
         int rowFrame = frame.length;
-        int colFrame = frame[0].length;
+
+        int firstRow = 0;
+        int colFrame = frame[firstRow].length;
 
         for (int row = 0; row < rowFrame ; row++) {
             for (int col = 0; col < colFrame; col++) {
