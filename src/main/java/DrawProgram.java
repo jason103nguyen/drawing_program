@@ -18,6 +18,10 @@ public class DrawProgram {
             throw new Exception("Smaller than minimum size");
         }
 
+        if (width > Const.MAXIMUM_SIZE_WIDTH || height > Const.MAXIMUM_SIZE_HEIGHT) {
+            throw new Exception("Bigger than max size");
+        }
+
         String[][] frame = new String[height + Const.OFFSET][width + Const.OFFSET];
         int rowFrame = frame.length;
 
