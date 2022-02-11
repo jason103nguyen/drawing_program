@@ -4,7 +4,7 @@ import org.junit.Test;
 public class DrawProgramTest {
 
     @Test
-    public void testCreateANewCanvas() {
+    public void testCreateANewCanvas() throws Exception {
 
         String[][] frameExpected = new String[][] {
                 {"-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-"},
@@ -25,7 +25,7 @@ public class DrawProgramTest {
     }
 
     @Test
-    public void testCreateANewCanvas_Cmd_C_20_2() {
+    public void testCreateANewCanvas_Cmd_C_20_2() throws Exception {
 
         String[][] frameExpected = new String[][] {
                 {"-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-"},
@@ -44,7 +44,7 @@ public class DrawProgramTest {
     }
 
     @Test(expected = Exception.class)
-    public void testCreateANewCanvas_WrongCmd_X_20_2() {
+    public void testCreateANewCanvas_WrongCmd_X_20_2() throws Exception {
 
         DrawProgram drawProgram = new DrawProgram();
         String[][] frameActual = drawProgram.draw("X 20 2");

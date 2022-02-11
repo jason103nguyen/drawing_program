@@ -1,8 +1,13 @@
 public class DrawProgram {
 
-    public String[][] draw(String cmd) {
+    public String[][] draw(String cmd) throws Exception {
 
         String[] arguments = cmd.split(" ");
+        int indexArgumentOfCmd = 0;
+        String cmdForCrateFrame = arguments[indexArgumentOfCmd];
+        if (!cmdForCrateFrame.equals(Const.CMD_CREATE_FRAME)) {
+            throw new Exception("Wrong cmd for crate frame");
+        }
 
         int indexArgumentOfWidth = 1;
         int indexArgumentOfHeight = 2;
