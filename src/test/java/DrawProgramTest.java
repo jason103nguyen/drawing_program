@@ -49,4 +49,11 @@ public class DrawProgramTest {
         DrawProgram drawProgram = new DrawProgram();
         String[][] frameActual = drawProgram.draw("X 20 2");
     }
+
+    @Test(expected = Exception.class)
+    public void testCreateANewCanvas_WrongSize_SmallerThanMinimumSize_C_0_0() throws Exception {
+
+        DrawProgram drawProgram = new DrawProgram();
+        String[][] frameActual = drawProgram.draw("C 0 0");
+    }
 }
