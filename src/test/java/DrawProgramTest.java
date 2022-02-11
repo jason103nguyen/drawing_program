@@ -4,7 +4,7 @@ import org.junit.Test;
 public class DrawProgramTest {
 
     @Test
-    public void testCreateANewCanvas() throws Exception {
+    public void testCreateANewCanvas() throws CanvasException {
 
         String[][] frameExpected = new String[][] {
                 {"-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-"},
@@ -25,7 +25,7 @@ public class DrawProgramTest {
     }
 
     @Test
-    public void testCreateANewCanvas_Cmd_C_20_2() throws Exception {
+    public void testCreateANewCanvas_Cmd_C_20_2() throws CanvasException {
 
         String[][] frameExpected = new String[][] {
                 {"-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-"},
@@ -43,22 +43,22 @@ public class DrawProgramTest {
         }
     }
 
-    @Test(expected = Exception.class)
-    public void testCreateANewCanvas_WrongCmd_X_20_2() throws Exception {
+    @Test(expected = CanvasException.class)
+    public void testCreateANewCanvas_WrongCmd_X_20_2() throws CanvasException {
 
         DrawProgram drawProgram = new DrawProgram();
         String[][] frameActual = drawProgram.draw("X 20 2");
     }
 
-    @Test(expected = Exception.class)
-    public void testCreateANewCanvas_WrongSize_SmallerThanMinimumSize_C_0_0() throws Exception {
+    @Test(expected = CanvasException.class)
+    public void testCreateANewCanvas_WrongSize_SmallerThanMinimumSize_C_0_0() throws CanvasException {
 
         DrawProgram drawProgram = new DrawProgram();
         String[][] frameActual = drawProgram.draw("C 0 0");
     }
 
-    @Test(expected = Exception.class)
-    public void testCreateANewCanvas_WrongSize_BiggerThanMaxSize_C_50_50() throws Exception {
+    @Test(expected = CanvasException.class)
+    public void testCreateANewCanvas_WrongSize_BiggerThanMaxSize_C_50_50() throws CanvasException {
 
         DrawProgram drawProgram = new DrawProgram();
         String[][] frameActual = drawProgram.draw("C 100 100");

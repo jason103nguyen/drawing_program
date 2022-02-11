@@ -1,25 +1,33 @@
 public class DrawProgram {
 
-    public String[][] draw(String cmd) throws Exception {
+    public String[][] draw(String cmd) throws CanvasException {
 
         String[] arguments = cmd.split(Const.SPACE_CHARACTER);
         int indexArgumentOfCmd = 0;
         String cmdForCreateFrame = arguments[indexArgumentOfCmd];
         if (!cmdForCreateFrame.equals(Const.CMD_CREATE_FRAME)) {
-            throw new Exception("Wrong cmd for crate frame");
+            throw new CanvasException("Wrong cmd for crate frame");
         }
 
         int indexArgumentOfWidth = 1;
         int indexArgumentOfHeight = 2;
-        int width = Integer.valueOf(arguments[indexArgumentOfWidth]);
-        int height = Integer.valueOf(arguments[indexArgumentOfHeight]);
+
+        int width = 0;
+        int height = 0;
+
+        try {
+            width = Integer.valueOf(arguments[indexArgumentOfWidth]);
+            height = Integer.valueOf(arguments[indexArgumentOfHeight]);
+        } catch (NumberFormatException exception) {
+            throw new CanvasException("Size not a integer");
+        }
 
         if (width < Const.MINIMUM_SIZE_WIDTH || height < Const.MINIMUM_SIZE_HEIGHT) {
-            throw new Exception("Smaller than minimum size");
+            throw new CanvasException("Smaller than minimum size");
         }
 
         if (width > Const.MAXIMUM_SIZE_WIDTH || height > Const.MAXIMUM_SIZE_HEIGHT) {
-            throw new Exception("Bigger than max size");
+            throw new CanvasException("Bigger than max size");
         }
 
         String[][] frame = new String[height + Const.OFFSET][width + Const.OFFSET];
