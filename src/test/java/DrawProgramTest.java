@@ -63,4 +63,11 @@ public class DrawProgramTest {
         DrawProgram drawProgram = new DrawProgram();
         String[][] frameActual = drawProgram.draw("C 100 100");
     }
+
+    @Test(expected = CanvasException.class)
+    public void testCreateANewCanvas_WrongSize_NotAInteger_C_w_h() throws CanvasException {
+
+        DrawProgram drawProgram = new DrawProgram();
+        String[][] frameActual = drawProgram.draw("C w h");
+    }
 }
