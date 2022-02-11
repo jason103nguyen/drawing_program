@@ -42,4 +42,11 @@ public class DrawProgramTest {
             Assert.assertArrayEquals(frameExpected[i], frameActual[i]);
         }
     }
+
+    @Test(expected = Exception.class)
+    public void testCreateANewCanvas_WrongCmd_X_20_2() {
+
+        DrawProgram drawProgram = new DrawProgram();
+        String[][] frameActual = drawProgram.draw("X 20 2");
+    }
 }
