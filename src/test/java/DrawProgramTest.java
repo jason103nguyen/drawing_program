@@ -56,4 +56,11 @@ public class DrawProgramTest {
         DrawProgram drawProgram = new DrawProgram();
         String[][] frameActual = drawProgram.draw("C 0 0");
     }
+
+    @Test(expected = Exception.class)
+    public void testCreateANewCanvas_WrongSize_BiggerThanMaxSize_C_50_50() throws Exception {
+
+        DrawProgram drawProgram = new DrawProgram();
+        String[][] frameActual = drawProgram.draw("C 100 100");
+    }
 }
