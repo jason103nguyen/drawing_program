@@ -91,6 +91,10 @@ public class DrawProgram {
             throw new CanvasException("Coordinates cannot pass the size of the frame");
         }
 
+        if (x1 != x2 && y1 != y2) {
+            throw new CanvasException("Not a straight line");
+        }
+
         if (y1 == y2) {
             int row = y1;
 
