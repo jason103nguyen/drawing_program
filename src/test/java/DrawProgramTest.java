@@ -162,4 +162,22 @@ public class DrawProgramTest {
         Assert.assertEquals(expectedMsg, actualMsg);
 
     }
+
+    @Test
+    public void drawLine_WrongArgument_CoordinatesCannotPassTheSizeOfTheFrame() {
+
+        String expectedMsg = "Coordinates cannot pass the size of the frame";
+        String actualMsg = "";
+
+        try {
+            DrawProgram drawProgram = new DrawProgram();
+            String[][] canvas = drawProgram.createFrame("C 20 4");
+            canvas = drawProgram.drawLine(canvas, "L 1 2 21 2");
+        } catch (CanvasException exception) {
+            actualMsg = exception.getMessage();
+        }
+
+        Assert.assertEquals(expectedMsg, actualMsg);
+
+    }
 }
