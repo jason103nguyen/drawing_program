@@ -65,10 +65,19 @@ public class DrawProgram {
             throw new CanvasException("Cmd should be is L");
         }
 
-        int x1 = Integer.valueOf(arguments[indexX1]);
-        int y1 = Integer.valueOf(arguments[indexY1]);
-        int x2 = Integer.valueOf(arguments[indexX2]);
-        int y2 = Integer.valueOf(arguments[indexY2]);
+        int x1 = 0;
+        int y1 = 0;
+        int x2 = 0;
+        int y2 = 0;
+
+        try {
+            x1 = Integer.valueOf(arguments[indexX1]);
+            y1 = Integer.valueOf(arguments[indexY1]);
+            x2 = Integer.valueOf(arguments[indexX2]);
+            y2 = Integer.valueOf(arguments[indexY2]);
+        } catch (NumberFormatException exception) {
+            throw new CanvasException("Argument does not a integer");
+        }
 
         int row = y1;
 
