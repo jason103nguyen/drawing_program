@@ -132,10 +132,19 @@ public class DrawProgram {
             throw new CanvasException("Cmd must be R");
         }
 
-        int AX_1 = Integer.valueOf(arguments[indexAX_1]);
-        int AY_1 = Integer.valueOf(arguments[indexAY_1]);
-        int BX_1 = Integer.valueOf(arguments[indexBX_1]);
-        int BY_1 = Integer.valueOf(arguments[indexBY_1]);
+        int AX_1 = 0;
+        int AY_1 = 0;
+        int BX_1 = 0;
+        int BY_1 = 0;
+
+        try {
+            AX_1 = Integer.valueOf(arguments[indexAX_1]);
+            AY_1 = Integer.valueOf(arguments[indexAY_1]);
+            BX_1 = Integer.valueOf(arguments[indexBX_1]);
+            BY_1 = Integer.valueOf(arguments[indexBY_1]);
+        } catch (NumberFormatException exception) {
+            throw new CanvasException("Coordinates not a integer");
+        }
 
         int AX_2 = BX_1;
         int AY_2 = AY_1;
