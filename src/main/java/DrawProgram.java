@@ -146,6 +146,14 @@ public class DrawProgram {
             throw new CanvasException("Coordinates not a integer");
         }
 
+        int firstRow = 0;
+        int width = frame[firstRow].length - Const.OFFSET;
+        int height = frame.length - Const.OFFSET;
+
+        if (AX_1 > width || AY_1 > height || BX_1 > width || BY_1 > height) {
+            throw new CanvasException("Coordinates of rectangle cannot pass the size of the frame");
+        }
+
         int AX_2 = BX_1;
         int AY_2 = AY_1;
         int BX_2 = AX_1;
