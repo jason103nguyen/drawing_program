@@ -243,4 +243,27 @@ public class DrawProgramTest {
         }
 
     }
+
+    @Test
+    public void drawRectangle_HaveWidthIs6() throws CanvasException {
+
+        String[][] canvasExpected = new String[][] {
+                {"-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-"},
+                {"|", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", "x", "x", "x", "x", "x", "x", " ", " ", "|"},
+                {"|", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", "x", " ", " ", " ", " ", "x", " ", " ", "|"},
+                {"|", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", "x", "x", "x", "x", "x", "x", " ", " ", "|"},
+                {"|", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", "|"},
+                {"-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-"}
+        };
+
+        DrawProgram drawProgram = new DrawProgram();
+        String[][] canvas = drawProgram.createFrame("C 20 4");
+        canvas = drawProgram.drawRectangle(canvas, "R 13 1 18 3");
+
+        Assert.assertEquals(canvasExpected.length, canvas.length);
+        for (int i = 0; i < canvasExpected.length; i++) {
+            Assert.assertArrayEquals(canvasExpected[i], canvas[i]);
+        }
+
+    }
 }
