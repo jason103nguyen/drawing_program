@@ -180,4 +180,27 @@ public class DrawProgramTest {
         Assert.assertEquals(expectedMsg, actualMsg);
 
     }
+
+    @Test
+    public void drawLine_IsAVerticalLine() throws CanvasException {
+
+        String[][] canvasExpected = new String[][] {
+                {"-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-"},
+                {"|", "x", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", "|"},
+                {"|", "x", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", "|"},
+                {"|", "x", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", "|"},
+                {"|", "x", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", "|"},
+                {"-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-"}
+        };
+
+        DrawProgram drawProgram = new DrawProgram();
+        String[][] canvas = drawProgram.createFrame("C 20 4");
+        canvas = drawProgram.drawLine(canvas, "L 1 1 1 4");
+
+        Assert.assertEquals(canvasExpected.length, canvas.length);
+        for (int i = 0; i < canvasExpected.length; i++) {
+            Assert.assertArrayEquals(canvasExpected[i], canvas[i]);
+        }
+
+    }
 }
