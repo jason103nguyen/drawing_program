@@ -79,37 +79,7 @@ public class DrawProgram {
             throw new CanvasException("Argument does not a integer");
         }
 
-        if (x1 <= 0 || y1 <= 0 || x2 <= 0 || y2 <= 0) {
-            throw new CanvasException("Coordinates cannot be less than or equal to 0");
-        }
-
-        int firstRow = 0;
-        int width = frame[firstRow].length - Const.OFFSET;
-        int height = frame.length - Const.OFFSET;
-
-        if (x1 > width || y1 > height || x2 > width || y2 > height) {
-            throw new CanvasException("Coordinates cannot pass the size of the frame");
-        }
-
-        if (x1 != x2 && y1 != y2) {
-            throw new CanvasException("Not a straight line");
-        }
-
-        if (y1 == y2) {
-            int row = y1;
-
-            for (int col = x1; col <= x2; col++) {
-                frame[row][col] = Const.COLOR_LINE;
-            }
-        } else if (x1 == x2){
-            int col = x1;
-
-            for (int row = y1; row <= y2; row++) {
-                frame[row][col] = Const.COLOR_LINE;
-            }
-        }
-
-        return frame;
+        return drawLine(frame, x1, y1, x2, y2);
     }
 
     public String[][] drawLine(String[][] frame, int x1, int y1, int x2, int y2) throws CanvasException {
