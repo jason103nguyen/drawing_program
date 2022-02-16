@@ -115,7 +115,7 @@ public class DrawProgramTest {
         }
     }
 
-    @Test(expected = CanvasException.class)
+    @Test
     public void drawLine_WrongCmd() {
 
         try {

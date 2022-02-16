@@ -60,7 +60,10 @@ public class DrawProgram {
         int indexX2 = 3;
         int indexY2 = 4;
 
-        String cmdForCreateDrawLine = arguments[indexArgumentOfCmd];
+        String cmdDrawLine = arguments[indexArgumentOfCmd];
+        if (!Const.CMD_DRAW_LINE.equals(cmdDrawLine)) {
+            throw new CanvasException("Cmd should be is L");
+        }
 
         int x1 = Integer.valueOf(arguments[indexX1]);
         int y1 = Integer.valueOf(arguments[indexY1]);
