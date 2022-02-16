@@ -284,4 +284,22 @@ public class DrawProgramTest {
         Assert.assertEquals(expectedMsg, actualMsg);
 
     }
+
+    @Test
+    public void drawRectangle_WrongCmd_NotAInteger() {
+
+        String expectedMsg = "Coordinates not a integer";
+        String actualMsg = "";
+
+        try {
+            DrawProgram drawProgram = new DrawProgram();
+            String[][] canvas = drawProgram.createFrame("C 20 4");
+            canvas = drawProgram.drawRectangle(canvas, "R a b c d");
+        } catch (CanvasException exception) {
+            actualMsg = exception.getMessage();
+        }
+
+        Assert.assertEquals(expectedMsg, actualMsg);
+
+    }
 }
