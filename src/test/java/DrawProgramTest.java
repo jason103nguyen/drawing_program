@@ -320,4 +320,22 @@ public class DrawProgramTest {
         Assert.assertEquals(expectedMsg, actualMsg);
 
     }
+
+    @Test
+    public void drawRectangle_WrongCmd_PointsIsALine() {
+
+        String expectedMsg = "Points can not a line";
+        String actualMsg = "";
+
+        try {
+            DrawProgram drawProgram = new DrawProgram();
+            String[][] canvas = drawProgram.createFrame("C 20 4");
+            canvas = drawProgram.drawRectangle(canvas, "R 14 1 18 1");
+        } catch (CanvasException exception) {
+            actualMsg = exception.getMessage();
+        }
+
+        Assert.assertEquals(expectedMsg, actualMsg);
+
+    }
 }
