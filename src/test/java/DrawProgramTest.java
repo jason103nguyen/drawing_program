@@ -130,4 +130,18 @@ public class DrawProgramTest {
 
     }
 
+    @Test
+    public void drawLine_WrongArgument_NotAInteger() {
+
+        try {
+            DrawProgram drawProgram = new DrawProgram();
+            String[][] canvas = drawProgram.createFrame("C 20 4");
+            canvas = drawProgram.drawLine(canvas, "L a b c d");
+        }
+        catch (CanvasException exception) {
+            String expectedMsg = "Argument does not a integer";
+            Assert.assertEquals(expectedMsg, exception.getMessage());
+        }
+
+    }
 }
