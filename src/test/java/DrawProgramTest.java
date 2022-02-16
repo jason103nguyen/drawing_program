@@ -203,4 +203,21 @@ public class DrawProgramTest {
         }
 
     }
+
+    @Test
+    public void drawLine_NotAStraightLine() {
+
+        String expectedMsg = "Not a straight line";
+        String actualMsg = "";
+        try {
+            DrawProgram drawProgram = new DrawProgram();
+            String[][] canvas = drawProgram.createFrame("C 20 4");
+            canvas = drawProgram.drawLine(canvas, "L 1 1 3 2");
+        } catch (CanvasException exception){
+            actualMsg = exception.getMessage();
+        }
+
+        Assert.assertEquals(expectedMsg, actualMsg);
+
+    }
 }
