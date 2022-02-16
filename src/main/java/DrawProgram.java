@@ -39,11 +39,11 @@ public class DrawProgram {
         for (int row = 0; row < rowFrame ; row++) {
             for (int col = 0; col < colFrame; col++) {
                 if (row == 0 || row == rowFrame - 1) {
-                    frame[row][col] = "-";
+                    frame[row][col] = Const.BORDER_HORIZONTAL;
                 } else if (col == 0 || col == colFrame - 1) {
-                    frame[row][col] = "|";
+                    frame[row][col] = Const.BORDER_VERTICAL;
                 } else {
-                    frame[row][col] = " ";
+                    frame[row][col] = Const.SPACE_CHARACTER;
                 }
             }
         }
