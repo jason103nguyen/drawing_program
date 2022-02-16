@@ -144,4 +144,22 @@ public class DrawProgramTest {
         }
 
     }
+
+    @Test
+    public void drawLine_WrongArgument_CoordinatesLessThanOrEqualZero() {
+
+        String expectedMsg = "Coordinates cannot be less than or equal to 0";
+        String actualMsg = "";
+
+        try {
+            DrawProgram drawProgram = new DrawProgram();
+            String[][] canvas = drawProgram.createFrame("C 20 4");
+            canvas = drawProgram.drawLine(canvas, "L 1 0 6 0");
+        } catch (CanvasException exception) {
+            actualMsg = exception.getMessage();
+        }
+
+        Assert.assertEquals(expectedMsg, actualMsg);
+
+    }
 }
