@@ -91,10 +91,18 @@ public class DrawProgram {
             throw new CanvasException("Coordinates cannot pass the size of the frame");
         }
 
-        int row = y1;
+        if (y1 == y2) {
+            int row = y1;
 
-        for (int col = x1; col <= x2; col++) {
-            frame[row][col] = Const.COLOR_LINE;
+            for (int col = x1; col <= x2; col++) {
+                frame[row][col] = Const.COLOR_LINE;
+            }
+        } else if (x1 == x2){
+            int col = x1;
+
+            for (int row = y1; row <= y2; row++) {
+                frame[row][col] = Const.COLOR_LINE;
+            }
         }
 
         return frame;
