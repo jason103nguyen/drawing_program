@@ -1,6 +1,6 @@
 public class DrawProgram {
 
-    public String[][] draw(String cmd) throws CanvasException {
+    public String[][] createFrame(String cmd) throws CanvasException {
 
         String[] arguments = cmd.split(Const.SPACE_CHARACTER);
         int indexArgumentOfCmd = 0;

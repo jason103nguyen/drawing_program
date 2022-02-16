@@ -16,7 +16,7 @@ public class DrawProgramTest {
         };
 
         DrawProgram drawProgram = new DrawProgram();
-        String[][] frameActual = drawProgram.draw("C 20 4");
+        String[][] frameActual = drawProgram.createFrame("C 20 4");
 
         Assert.assertEquals(frameExpected.length, frameActual.length);
         for (int i = 0; i < frameExpected.length; i++) {
@@ -35,7 +35,7 @@ public class DrawProgramTest {
         };
 
         DrawProgram drawProgram = new DrawProgram();
-        String[][] frameActual = drawProgram.draw("C 20 2");
+        String[][] frameActual = drawProgram.createFrame("C 20 2");
 
         Assert.assertEquals(frameExpected.length, frameActual.length);
         for (int i = 0; i < frameExpected.length; i++) {
@@ -47,27 +47,27 @@ public class DrawProgramTest {
     public void testCreateANewCanvas_WrongCmd_X_20_2() throws CanvasException {
 
         DrawProgram drawProgram = new DrawProgram();
-        String[][] frameActual = drawProgram.draw("X 20 2");
+        String[][] frameActual = drawProgram.createFrame("X 20 2");
     }
 
     @Test(expected = CanvasException.class)
     public void testCreateANewCanvas_WrongSize_SmallerThanMinimumSize_C_0_0() throws CanvasException {
 
         DrawProgram drawProgram = new DrawProgram();
-        String[][] frameActual = drawProgram.draw("C 0 0");
+        String[][] frameActual = drawProgram.createFrame("C 0 0");
     }
 
     @Test(expected = CanvasException.class)
     public void testCreateANewCanvas_WrongSize_BiggerThanMaxSize_C_50_50() throws CanvasException {
 
         DrawProgram drawProgram = new DrawProgram();
-        String[][] frameActual = drawProgram.draw("C 100 100");
+        String[][] frameActual = drawProgram.createFrame("C 100 100");
     }
 
     @Test(expected = CanvasException.class)
     public void testCreateANewCanvas_WrongSize_NotAInteger_C_w_h() throws CanvasException {
 
         DrawProgram drawProgram = new DrawProgram();
-        String[][] frameActual = drawProgram.draw("C w h");
+        String[][] frameActual = drawProgram.createFrame("C w h");
     }
 }
