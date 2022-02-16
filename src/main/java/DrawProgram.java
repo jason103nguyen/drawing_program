@@ -79,6 +79,10 @@ public class DrawProgram {
             throw new CanvasException("Argument does not a integer");
         }
 
+        if (x1 <= 0 || y1 <= 0 || x2 <= 0 || y2 <= 0) {
+            throw new CanvasException("Coordinates cannot be less than or equal to 0");
+        }
+
         int row = y1;
 
         for (int col = x1; col <= x2; col++) {
