@@ -93,4 +93,26 @@ public class DrawProgramTest {
         }
     }
 
+    @Test
+    public void drawLine_WidthIs5() throws CanvasException {
+
+        String[][] canvasExpected = new String[][] {
+                {"-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-"},
+                {"|", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", "|"},
+                {"|", " ", "x", "x", "x", "x", "x", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", "|"},
+                {"|", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", "|"},
+                {"|", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", "|"},
+                {"-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-"}
+        };
+
+        DrawProgram drawProgram = new DrawProgram();
+        String[][] canvas = drawProgram.createFrame("C 20 4");
+        canvas = drawProgram.drawLine(canvas, "L 2 2 6 2");
+
+        Assert.assertEquals(canvasExpected.length, canvas.length);
+        for (int i = 0; i < canvasExpected.length; i++) {
+            Assert.assertArrayEquals(canvasExpected[i], canvas[i]);
+        }
+    }
+
 }
