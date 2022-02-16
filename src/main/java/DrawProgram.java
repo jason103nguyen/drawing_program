@@ -83,6 +83,14 @@ public class DrawProgram {
             throw new CanvasException("Coordinates cannot be less than or equal to 0");
         }
 
+        int firstRow = 0;
+        int width = frame[firstRow].length - Const.OFFSET;
+        int height = frame.length - Const.OFFSET;
+
+        if (x1 > width || y1 > height || x2 > width || y2 > height) {
+            throw new CanvasException("Coordinates cannot pass the size of the frame");
+        }
+
         int row = y1;
 
         for (int col = x1; col <= x2; col++) {
