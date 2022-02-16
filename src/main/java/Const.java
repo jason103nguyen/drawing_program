@@ -7,6 +7,7 @@ public class Const {
      */
     public static final String CMD_CREATE_FRAME = "C";
     public static final String CMD_DRAW_LINE = "L";
+    public static final String CMD_DRAW_RECTANGLE = "R";
 
     /**
      * Limit of size

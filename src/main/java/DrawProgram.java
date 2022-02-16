@@ -126,7 +126,11 @@ public class DrawProgram {
         int indexBX_1 = 3;
         int indexBY_1 = 4;
 
-        String cmdDrawLine = arguments[indexArgumentOfCmd];
+        String cmdDrawRectangle = arguments[indexArgumentOfCmd];
+
+        if (!Const.CMD_DRAW_RECTANGLE.equals(cmdDrawRectangle)) {
+            throw new CanvasException("Cmd must be R");
+        }
 
         int AX_1 = Integer.valueOf(arguments[indexAX_1]);
         int AY_1 = Integer.valueOf(arguments[indexAY_1]);
