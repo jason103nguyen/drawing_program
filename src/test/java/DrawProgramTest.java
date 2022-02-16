@@ -302,4 +302,22 @@ public class DrawProgramTest {
         Assert.assertEquals(expectedMsg, actualMsg);
 
     }
+
+    @Test
+    public void drawRectangle_WrongCmd_CoordinatesPassTheSizeOfTheFrame() {
+
+        String expectedMsg = "Coordinates of rectangle cannot pass the size of the frame";
+        String actualMsg = "";
+
+        try {
+            DrawProgram drawProgram = new DrawProgram();
+            String[][] canvas = drawProgram.createFrame("C 20 4");
+            canvas = drawProgram.drawRectangle(canvas, "R 14 1 30 3");
+        } catch (CanvasException exception) {
+            actualMsg = exception.getMessage();
+        }
+
+        Assert.assertEquals(expectedMsg, actualMsg);
+
+    }
 }
