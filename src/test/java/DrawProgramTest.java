@@ -266,4 +266,22 @@ public class DrawProgramTest {
         }
 
     }
+
+    @Test
+    public void drawRectangle_WrongCmd() {
+
+        String expectedMsg = "Cmd must be R";
+        String actualMsg = "";
+
+        try {
+            DrawProgram drawProgram = new DrawProgram();
+            String[][] canvas = drawProgram.createFrame("C 20 4");
+            canvas = drawProgram.drawRectangle(canvas, "X 13 1 18 3");
+        } catch (CanvasException exception) {
+            actualMsg = exception.getMessage();
+        }
+
+        Assert.assertEquals(expectedMsg, actualMsg);
+
+    }
 }
