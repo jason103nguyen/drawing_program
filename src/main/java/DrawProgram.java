@@ -154,6 +154,10 @@ public class DrawProgram {
             throw new CanvasException("Coordinates of rectangle cannot pass the size of the frame");
         }
 
+        if (AX_1 == BX_1 || AY_1 == BY_1) {
+            throw new CanvasException("Points can not a line");
+        }
+
         int AX_2 = BX_1;
         int AY_2 = AY_1;
         int BX_2 = AX_1;
