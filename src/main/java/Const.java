@@ -10,4 +10,5 @@ public class Const {
     public static final String BORDER_HORIZONTAL = "-";
     public static final String BORDER_VERTICAL = "|";
 
+    public static final String COLOR_LINE = "x";
 }

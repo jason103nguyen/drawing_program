@@ -53,15 +53,26 @@ public class DrawProgram {
 
     public String[][] drawLine(String[][] frame, String cmd) throws CanvasException {
 
-        String[][] canvas = new String[][] {
-                {"-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-"},
-                {"|", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", "|"},
-                {"|", "x", "x", "x", "x", "x", "x", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", "|"},
-                {"|", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", "|"},
-                {"|", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", "|"},
-                {"-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-"}
-        };
+        String[] arguments = cmd.split(Const.SPACE_CHARACTER);
+        int indexArgumentOfCmd = 0;
+        int indexX1 = 1;
+        int indexY1 = 2;
+        int indexX2 = 3;
+        int indexY2 = 4;
 
-        return canvas;
+        String cmdForCreateDrawLine = arguments[indexArgumentOfCmd];
+
+        int x1 = Integer.valueOf(arguments[indexX1]);
+        int y1 = Integer.valueOf(arguments[indexY1]);
+        int x2 = Integer.valueOf(arguments[indexX2]);
+        int y2 = Integer.valueOf(arguments[indexY2]);
+
+        int row = y1;
+
+        for (int col = x1; col <= x2; col++) {
+            frame[row][col] = Const.COLOR_LINE;
+        }
+
+        return frame;
     }
 }
