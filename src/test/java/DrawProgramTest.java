@@ -115,4 +115,19 @@ public class DrawProgramTest {
         }
     }
 
+    @Test(expected = CanvasException.class)
+    public void drawLine_WrongCmd() {
+
+        try {
+            DrawProgram drawProgram = new DrawProgram();
+            String[][] canvas = drawProgram.createFrame("C 20 4");
+            canvas = drawProgram.drawLine(canvas, "X 2 2 6 2");
+        }
+        catch (CanvasException exception) {
+            String expectedMsg = "Cmd should be is L";
+            Assert.assertEquals(expectedMsg, exception.getMessage());
+        }
+
+    }
+
 }
